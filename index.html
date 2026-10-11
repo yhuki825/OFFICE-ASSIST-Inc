@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!--
+================================================================
+株式会社オフィスアシスト ブランドサイト デザイン案
+  コンセプト：「主役は、そこで働く人。」
+    社名の「アシスト（assist）＝そばで手を添え、支えること」から着想。
+    職場の主役はあくまでそこで働く人で、私たちは一枚のガラスを拭きあげるように、
+    その人たちの毎日が澄んで見えるよう手を添える、という姿勢を描いています。
+    ・ヒーロー：くもったガラスをスクイージー（水切り）がひと拭きするたびに、向こうの明るい職場が澄んで見えるCanvas。
+      右側に、日常清掃・定期清掃・特殊清掃・ハウスクリーニングに順にチェックが入る「清掃記録」カード
+    ・右端のスクロールレール：上から下へガラスを拭きあげていくスクイージー
+    ※所在地・地名、代表者のお名前から着想した要素は採用していません（CSVにある拠点の記載もコピーには使っていません）。
+  デプロイ：Cloudflare Pages（Direct Upload）にこのファイルをそのままアップロード。
+            ビルド不要。外部依存は Google Fonts と Unsplash 画像のみ。
+
+  ■ 公開前の確認事項（チェックリスト）
+  [ ] 1. 【確認事項】社名の解釈（アシスト＝手を添える）は本案のデザイン上の読みです
+  [ ] 2. 【確認事項】キャッチコピー「職場に合わせて、磨きあげる。」はCSVの「お客様一社一社の環境に合わせた清掃プラン」をもとにした仮案です
+  [ ] 3. 【確認事項】英字表記「OFFICE ASSIST」は商号の読みから起こした仮表記です
+  [ ] 4. 【確認事項】ヒーローの「清掃記録」カードは演出上の飾りで、実際の作業記録ではありません（日付は表示した日が入ります）
+  [ ] 5. 【確認事項】各清掃メニューの作業内容の例はCSVに無い補足です。特殊清掃の対象範囲（どのような現場に対応するか）は記載していません
+  [ ] 6. 【確認事項】特殊清掃で廃棄物の収集運搬を伴う場合は、廃棄物処理法上の許可の要否をご確認ください
+  [ ] 7. 【確認事項】対応エリア：CSVに拠点の記載がありますが、コピーには使わず会社概要の事業内容欄にのみ記載しています
+  [ ] 8. 【確認事項】スタッフ数・対応実績・保険加入・料金は記載していません（事実があれば追記可能）
+  [ ] 9. 【確認事項】「清掃プラン」「ご依頼の流れ」「代表メッセージ」の文章は仮案（草案）です
+  [ ] 10.【確認事項】代表者の役職名（「代表取締役」と仮置き）。代表メッセージの署名には氏名を入れていません
+  [ ] 11.【確認事項】設立年月日・資本金・従業員数 … 未確認のため会社概要ではコメントアウト
+  [ ] 12.【確認事項】所在地・代表者名は会社概要の表にのみ記載。公開可否をご確認ください
+  [ ] 13.【確認事項】画像はUnsplashのフリー素材（仮）。実際の作業写真への差し替えを推奨
+         1497366811353-6870744d04b2 / 1524758631624-e2822e304c36 / 1527515637462-cff94eecc1ac / 1581578731548-c64695cc6952 /
+         1563453392212-326f5e854473 / 1584622650111-993a426fbf0a / 1585421514738-01798e348b17
+  [ ] 14. OGP画像・favicon・公開URL
+  ※ ご依頼に合わせ、連絡用フォーム・連絡窓口の案内エリア・代表者写真は設けていません
+================================================================
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>株式会社オフィスアシスト｜オフィス清掃（日常清掃・定期清掃・特殊清掃・ハウスクリーニング）</title>
+<meta name="description" content="株式会社オフィスアシストは、オフィスを中心とした清掃サービスの会社です。日常清掃・定期清掃から特殊清掃、ハウスクリーニングまで、一社一社の環境に合わせた清掃プランをご提案します。">
+<meta property="og:title" content="株式会社オフィスアシスト｜オフィス清掃（日常清掃・定期清掃・特殊清掃・ハウスクリーニング）">
+<meta property="og:description" content="株式会社オフィスアシストは、オフィスを中心とした清掃サービスの会社です。日常清掃・定期清掃から特殊清掃、ハウスクリーニングまで、一社一社の環境に合わせた清掃プランをご提案します。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<!-- 要確認：og:url / og:image は公開ドメイン確定後に設定 -->
+<meta name="theme-color" content="#13252B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2313252B'/%3E%3Cpath d='M8 22 H24' stroke='%235FCFC0' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M16 22 V9' stroke='%23F1F3F0' stroke-width='1.6'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Jost:wght@300;400;500&family=Shippori+Mincho+B1:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--base:#F1F3F0;       /* 拭きあげた白い床（明るい本文） */
+  --base-2:#E5EBE8;
+  --base-deep:#E1E7E4;
+  --night:#13252B;      /* 始業前のガラス（ヒーロー・メッセージ） */
+  --text:#18262C;       /* インク */
+  --text2:#3C4E55;
+  --mute:#6C7E84;
+  --accent:#1F8F8A;     /* --fresh：拭きあげた水の青緑 */
+  --mint:#5FCFC0;       /* 暗い面での青緑 */
+  --line:rgba(24,38,44,.14);
+  --hdr:rgba(241,243,240,.9);
+  --menu:rgba(241,243,240,.98);
+  --fallback:repeating-linear-gradient(115deg,rgba(31,143,138,.12) 0 2px,transparent 2px 22px),#E5EBE8;
+  --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --latin:"Jost","Helvetica Neue",Arial,sans-serif;
+  --num:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hh:72px;
+  --bullet-r:1px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--base);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.04em;word-break:auto-phrase;text-wrap:pretty;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.nw{display:inline-block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--accent);color:var(--base);padding:10px 16px;text-decoration:none;font-weight:700}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1160px,100% - 48px);margin:0 auto}
+.sec{position:relative;padding:clamp(96px,14vw,176px) 0}
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid transparent;transition:background .45s,border-color .45s,backdrop-filter .45s}
+.header.is-scrolled{background:var(--hdr);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line)}
+.header__in{width:min(1240px,100% - 40px);margin:0 auto;height:var(--hh);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.logo svg{width:32px;height:32px;flex:none}
+.logo__txt{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.14em;line-height:1.25}
+.logo__txt small{display:block;font-family:var(--latin);font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--mute)}
+.gnav ul{display:flex;gap:clamp(18px,2.4vw,34px)}
+.gnav a{position:relative;display:block;padding:6px 0;font-size:13px;letter-spacing:.13em;text-decoration:none}
+.gnav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.gnav a:hover::after,.gnav a:focus-visible::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;position:relative;flex:none}
+.menu-btn span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .3s,opacity .3s}
+.menu-btn span:nth-child(1){top:16px}.menu-btn span:nth-child(2){top:22px}.menu-btn span:nth-child(3){top:28px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .menu-btn{display:block;z-index:120}
+  .gnav{position:fixed;inset:0;background:var(--menu);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;z-index:110}
+  .gnav.is-open{opacity:1;visibility:visible}
+  .gnav ul{flex-direction:column;align-items:center;gap:26px}
+  .gnav a{font-family:var(--serif);font-size:20px;letter-spacing:.16em}
+}
+/* rail */
+.rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);height:52vh;width:30px;z-index:90;pointer-events:none}
+@media (max-width:820px){.rail{display:none}}
+/* hero entrance (class toggle) */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero [data-in]{opacity:0;transform:translateY(14px);transition:opacity 1.2s cubic-bezier(.22,.7,.2,1),transform 1.2s cubic-bezier(.22,.7,.2,1)}
+.is-loaded .hero [data-in]{opacity:1;transform:none}
+.is-loaded .hero [data-in="2"]{transition-delay:.4s}
+.is-loaded .hero [data-in="3"]{transition-delay:.85s}
+.is-loaded .hero [data-in="4"]{transition-delay:1.25s}
+.cue{position:absolute;left:50%;bottom:26px;width:1px;height:54px;background:var(--line);overflow:hidden}
+.cue::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--text);animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{to{top:100%}}
+/* reveal (only when JS runs) */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.22,.7,.2,1),transform 1s cubic-bezier(.22,.7,.2,1)}
+.js .reveal.is-in{opacity:1;transform:none}
+/* photo frames */
+.ph{position:relative;overflow:hidden;background:var(--fallback)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.is-fallback{background:var(--fallback)}
+/* band */
+.band{position:relative;height:clamp(260px,42vw,520px);overflow:hidden;margin:0}
+.band img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;filter:saturate(.72) brightness(.66);will-change:transform}
+.band figcaption{position:absolute;left:0;right:0;bottom:clamp(28px,5vw,56px);width:min(1160px,100% - 48px);margin:0 auto;font-family:var(--serif);font-size:clamp(18px,2.4vw,28px);letter-spacing:.14em;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+/* business rows */
+.biz{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
+.biz + .biz{margin-top:clamp(72px,10vw,128px)}
+.biz:nth-of-type(even) .biz__media{order:2}
+.biz__media{aspect-ratio:4/3}
+.biz__media img{filter:saturate(.78);transform:scale(1.06);transition:transform 2s cubic-bezier(.2,.6,.2,1)}
+.biz.is-in .biz__media img{transform:scale(1)}
+.biz__kind{font-size:13px;letter-spacing:.16em;color:var(--accent)}
+.biz h3{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:.1em;line-height:1.6;margin:10px 0 18px}
+.biz p{max-width:30em}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:4px 13px;font-size:12.5px;letter-spacing:.08em}
+@media (max-width:900px){.biz{grid-template-columns:minmax(0,1fr)}.biz:nth-of-type(even) .biz__media{order:0}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);position:relative;margin-top:clamp(40px,6vw,72px)}
+.steps::before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
+.steps::after{content:"";position:absolute;left:0;top:11px;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 2.4s cubic-bezier(.6,.1,.2,1)}
+.steps.is-in::after{transform:scaleX(1)}
+.step{position:relative;padding-top:44px}
+.step__dot{position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;border:1px solid var(--mute);background:var(--base);display:grid;place-items:center}
+.step__dot::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--accent);transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.steps.is-in .step__dot::after{transform:scale(1)}
+.steps.is-in .step:nth-child(2) .step__dot::after{transition-delay:.6s}
+.steps.is-in .step:nth-child(3) .step__dot::after{transition-delay:1.2s}
+.steps.is-in .step:nth-child(4) .step__dot::after{transition-delay:1.8s}
+.step__no{font-family:var(--num);font-size:13px;color:var(--accent);letter-spacing:.12em}
+.step h3{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;margin:6px 0 2px}
+.step small{display:block;font-size:12px;color:var(--mute);letter-spacing:.12em;margin-bottom:10px}
+.step p{font-size:15px}
+@media (max-width:900px){
+  .steps{grid-template-columns:minmax(0,1fr);gap:0;padding-left:40px}
+  .steps::before,.steps::after{left:11px;right:auto;top:10px;bottom:10px;width:1px;height:auto}
+  .steps::after{transform:scaleY(0);transform-origin:top}
+  .steps.is-in::after{transform:scaleY(1)}
+  .step{padding:0 0 36px}
+  .step__dot{left:-40px}
+}
+/* values */
+.values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--line)}
+.values li{padding:32px clamp(18px,2.6vw,36px) 8px;border-left:1px solid var(--line)}
+.values li:first-child{border-left:0;padding-left:0}
+.values h3{font-family:var(--serif);font-weight:600;font-size:clamp(19px,2vw,23px);letter-spacing:.12em;line-height:1.6;margin-bottom:12px}
+.values p{font-size:15px;color:var(--text2)}
+@media (max-width:860px){.values{grid-template-columns:minmax(0,1fr)}.values li,.values li:first-child{border-left:0;padding:26px 0 22px;border-bottom:1px solid var(--line)}}
+/* message */
+.msg{display:flex;flex-direction:row-reverse;gap:clamp(40px,6vw,90px);justify-content:center;align-items:flex-start}
+.msg__title{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.2em;line-height:1.7;flex:none}
+.msg__title small{display:block;font-family:var(--sans);font-weight:400;font-size:13px;letter-spacing:.24em;color:var(--mute);margin-right:1.2em}
+.msg__body{writing-mode:vertical-rl;font-family:var(--serif);font-size:16px;line-height:2.3;letter-spacing:.14em;height:30em;max-width:100%;overflow-x:auto}
+.msg__body p{margin:0 0 0 1.6em}
+.msg__body p.first{font-size:1.25em}
+.msg__sign{text-align:end;color:var(--text2);font-size:14px;letter-spacing:.24em}
+@media (max-width:860px){
+  .msg{flex-direction:column;gap:32px}
+  .msg__title,.msg__body{writing-mode:horizontal-tb;height:auto}
+  .msg__title small{margin:10px 0 0}
+  .msg__body{line-height:2.1;letter-spacing:.06em}
+  .msg__body p{margin:0 0 1.4em}
+  .msg__sign{text-align:right}
+}
+/* profile */
+.profile-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:clamp(40px,7vw,110px);align-items:start}
+.profile{width:100%;border-collapse:collapse;font-size:15px}
+.profile th,.profile td{text-align:left;vertical-align:top;padding:22px 0;border-bottom:1px solid var(--line);font-weight:400}
+.profile tr:first-child th,.profile tr:first-child td{border-top:1px solid var(--line)}
+.profile th{width:9em;color:var(--mute);font-size:14px;letter-spacing:.14em;padding-right:24px}
+.profile td li{position:relative;padding-left:1.1em}
+.profile td li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;background:var(--accent);border-radius:var(--bullet-r,50%)}
+dl.profile{margin:0;border-top:1px solid var(--line)}
+dl.profile > div{display:grid;grid-template-columns:9em minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+dl.profile dt{color:var(--mute);font-size:14px;letter-spacing:.14em}
+dl.profile dd li{position:relative;padding-left:1.1em}
+dl.profile dd li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;background:var(--accent);border-radius:var(--bullet-r,50%)}
+@media (max-width:760px){
+  .profile-grid{grid-template-columns:minmax(0,1fr)}
+  .profile th,.profile td{display:block;width:auto;padding:0}
+  .profile th{padding-top:20px;border-bottom:0}
+  .profile td{padding:4px 0 20px}
+  .profile tr:first-child td{border-top:0}
+  dl.profile > div{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+/* footer */
+.footer{padding:72px 0 calc(40px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--base-deep)}
+.footer__in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px}
+.footer__tag{font-family:var(--serif);font-size:clamp(16px,1.8vw,22px);letter-spacing:.18em;margin-top:16px}
+.footer nav ul{display:flex;flex-wrap:wrap;gap:8px 22px}
+.footer nav a{font-size:12.5px;color:var(--mute);text-decoration:none;letter-spacing:.12em;transition:color .3s}
+.footer nav a:hover{color:var(--text)}
+.footer__copy{display:block;margin-top:40px;font-family:var(--latin);font-size:12.5px;color:var(--mute);letter-spacing:.1em}
+/* drawn svg */
+.draw .ln{fill:none;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s cubic-bezier(.45,.05,.2,1) .3s}
+.draw .ln.d2{transition-delay:.8s}.draw .ln.d3{transition-delay:1.3s}.draw .ln.d4{transition-delay:1.8s}
+.draw .pop{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);transition:opacity .8s,transform .8s cubic-bezier(.3,1.6,.5,1)}
+.draw .lbl{opacity:0;transition:opacity 1s 1.8s}
+.draw.is-in .ln{stroke-dashoffset:0}
+.draw.is-in .pop{opacity:1;transform:none}
+.draw.is-in .lbl{opacity:1}
+.draw .pop.p2{transition-delay:.7s}.draw .pop.p3{transition-delay:1.2s}.draw .pop.p4{transition-delay:1.7s}.draw .pop.p5{transition-delay:2.2s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal,.hero [data-in]{opacity:1;transform:none}
+  .steps::after{transform:none}.step__dot::after{transform:scale(1)}
+  .draw .ln{stroke-dashoffset:0}.draw .pop,.draw .lbl{opacity:1;transform:none}
+  .biz__media img{transform:none}
+}
+
+
+.logo svg path{fill:none;stroke-linecap:round}
+.logo__txt{font-size:17px;letter-spacing:.16em}
+.logo__txt small{font-family:var(--latin);font-size:10.5px;letter-spacing:.3em}
+/* header over the dark hero */
+.header:not(.is-scrolled){color:#F1F3F0}
+.header:not(.is-scrolled) .logo__txt small{color:rgba(241,243,240,.7)}
+.header:not(.is-scrolled) .menu-btn{color:#F1F3F0}
+.gnav.is-open{color:var(--text)}
+/* heading H4: JA + EN sub below with a rule */
+.h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.1vw,38px);letter-spacing:.14em;line-height:1.55}
+.h2 small{display:flex;align-items:center;gap:12px;font-family:var(--latin);font-weight:400;font-size:12px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-top:12px}
+.h2 small::before{content:"";width:28px;height:2px;background:var(--accent)}
+.lead{color:var(--text2);max-width:34em;margin-top:22px}
+/* hero F: dark glass + artefact */
+.hero{background:var(--night);color:#F1F3F0}
+.hero__veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(19,37,43,.55) 0%,transparent 26%,transparent 60%,rgba(19,37,43,.92) 100%)}
+.hero__in{position:relative;z-index:2;min-height:100vh;min-height:100svh;width:min(1160px,100% - 140px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:clamp(24px,4vw,56px);align-items:end;padding:120px 0 92px;pointer-events:none}
+.hero h1{grid-column:3;writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(36px,4.6vw,64px);letter-spacing:.2em;line-height:1.5;align-self:start}
+.hero h1 span{display:block}.hero h1 span+span{padding-top:2.4em}
+.hero__lead{grid-column:1;max-width:27em}
+.hero__kind{font-size:12.5px;letter-spacing:.2em;color:var(--mint);margin-bottom:12px}
+.hero__lead p{color:rgba(241,243,240,.82);font-size:15px}
+.card{grid-column:2;align-self:center;width:250px;background:rgba(241,243,240,.94);color:var(--text);padding:20px 22px 18px;box-shadow:0 20px 50px rgba(0,0,0,.35);transform:rotate(-2deg)}
+.card__top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--text);padding-bottom:8px;margin-bottom:6px}
+.card__top b{font-family:var(--serif);font-size:16px;letter-spacing:.2em}
+.card__top span{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.card dl{margin:0}
+.card dl div{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed rgba(24,38,44,.25);font-size:13.5px}
+.card dt{letter-spacing:.08em}
+.card dd{margin:0;width:20px;height:20px}
+.card dd svg{width:20px;height:20px;fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.card dd path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .5s ease}
+.is-loaded .card dd path{stroke-dashoffset:0}
+.is-loaded .card div:nth-child(1) dd path{transition-delay:2.2s}
+.is-loaded .card div:nth-child(2) dd path{transition-delay:2.8s}
+.is-loaded .card div:nth-child(3) dd path{transition-delay:3.4s}
+.is-loaded .card div:nth-child(4) dd path{transition-delay:4s}
+.card__foot{margin-top:10px;font-family:var(--latin);font-size:10.5px;letter-spacing:.24em;color:var(--mute)}
+.hero .cue{background:rgba(241,243,240,.2)}.hero .cue::after{background:#F1F3F0}
+@media (max-width:1000px){
+  .hero__in{grid-template-columns:minmax(0,1fr);width:min(1160px,100% - 48px);align-content:end;gap:26px;padding:106px 0 72px}
+  .hero h1{grid-column:1;writing-mode:horizontal-tb;font-size:clamp(30px,8.8vw,44px);letter-spacing:.1em;order:-1;align-self:auto}
+  .hero h1 span+span{padding:0 0 0 1.2em}
+  .hero__lead{grid-column:1}
+  .card{grid-column:1;width:100%;max-width:300px;transform:none}
+  .hero__veil{background:linear-gradient(180deg,rgba(19,37,43,.6) 0%,rgba(19,37,43,.35) 28%,rgba(19,37,43,.88) 50%,rgba(19,37,43,.96) 100%)}
+}
+@media (prefers-reduced-motion:reduce){.card dd path{stroke-dashoffset:0}}
+/* rail: squeegee wiping a pane top-down */
+.rail{width:22px}
+.rail__pane{position:absolute;inset:0;border:1px solid rgba(108,126,132,.45);background:repeating-linear-gradient(0deg,rgba(108,126,132,.28) 0 2px,rgba(108,126,132,.12) 2px 5px)}
+.rail__clear{position:absolute;left:0;right:0;top:0;height:100%;transform-origin:top;transform:scaleY(0);background:linear-gradient(180deg,rgba(95,207,192,.55),rgba(95,207,192,.85))}
+.rail__blade{position:absolute;left:-6px;right:-6px;top:0;height:5px;margin-top:-2px;background:var(--text);border:1px solid #F1F3F0;border-radius:2px}
+.rail__blade::after{content:"";position:absolute;left:50%;top:4px;width:2px;height:16px;margin-left:-1px;background:var(--text)}
+.rail__read{position:absolute;left:-4px;bottom:-30px;font-family:var(--mono);font-size:11px;color:var(--mute)}
+/* concept */
+.concept__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,7vw,110px);align-items:center}
+.concept p+p{margin-top:1.3em}
+.plan{width:100%;overflow:visible;background:#fff;box-shadow:0 1px 0 var(--line)}
+.plan .ln{stroke-width:1.4}
+.plan text{font-family:var(--sans);font-size:13px;fill:var(--text);letter-spacing:.1em}
+.plan .route{stroke:var(--accent);stroke-width:2;stroke-linecap:round}
+@media (max-width:900px){.concept__grid{grid-template-columns:minmax(0,1fr)}}
+.band img{filter:saturate(.8) brightness(.78)}
+/* services: 2x2 */
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(56px,8vw,96px)}
+.svc article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:start;background:#fff;padding:18px;box-shadow:0 1px 0 var(--line)}
+.svc .ph{aspect-ratio:1/1}
+.svc .ph img{filter:saturate(.85);transition:transform 1.4s cubic-bezier(.22,.7,.2,1)}
+.svc article:hover .ph img{transform:scale(1.04)}
+.svc .en{font-family:var(--latin);font-size:11.5px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-top:6px}
+.svc h3{font-family:var(--serif);font-size:22px;letter-spacing:.14em;margin:6px 0 10px}
+.svc p{font-size:14.5px;color:var(--text2)}
+.svc ul{margin-top:12px}
+.svc li{position:relative;padding-left:1.2em;font-size:13.5px;color:var(--text2)}
+.svc li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:2px;background:var(--accent)}
+@media (max-width:1000px){.svc{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.svc article{grid-template-columns:minmax(0,1fr)}.svc .ph{aspect-ratio:16/10}}
+.planning{background:var(--base-2)}
+.planning__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(40px,7vw,100px);align-items:center}
+.planning .ph{aspect-ratio:4/5}
+@media (max-width:900px){.planning__grid{grid-template-columns:minmax(0,1fr)}.planning .ph{aspect-ratio:16/10}}
+.values{border-top-color:var(--line)}
+.values li h3::before{content:"";display:block;width:22px;height:4px;border-radius:2px;background:var(--accent);margin-bottom:14px}
+.step__dot{background:var(--base)}
+/* message: dark feature */
+.message{background:var(--night);color:#F1F3F0;--text2:rgba(241,243,240,.75);--mute:rgba(241,243,240,.6);--line:rgba(241,243,240,.16)}
+.footer{color:var(--text)}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="header" id="header">
+  <div class="header__in">
+    <a class="logo" href="#top" aria-label="株式会社オフィスアシスト トップへ"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 22 H25" stroke="#5FCFC0" stroke-width="2.6"/><path d="M16 22 V8" stroke="currentColor" stroke-width="1.6"/></svg><span class="logo__txt">オフィスアシスト<small>OFFICE ASSIST</small></span><!-- 【確認事項】英字表記「OFFICE ASSIST」とロゴマークは仮のものです --></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-controls="gnav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー"><ul><li><a href="#concept">私たちについて</a></li><li><a href="#service">サービス</a></li><li><a href="#plan">清掃プラン</a></li><li><a href="#flow">ご依頼の流れ</a></li><li><a href="#message">代表メッセージ</a></li><li><a href="#company">会社概要</a></li></ul></nav>
+  </div>
+</header>
+<div class="rail" id="rail" aria-hidden="true"><div class="rail__pane"><div class="rail__clear" id="railClear"></div></div><span class="rail__blade" id="railBlade"></span><span class="rail__read" id="railRead">000%</span></div>
+<main id="main">
+<section class="hero" id="top" aria-label="メインビジュアル">
+  <!-- 画像：Unsplash（仮）。Canvasに描画する明るいオフィスの写真（1497366811353）。差し替え推奨 -->
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__in">
+    <div class="hero__lead">
+      <p class="hero__kind" data-in="2">オフィスを中心とした清掃サービス</p>
+      <p data-in="3">日常清掃・定期清掃はもちろん、特殊清掃やハウスクリーニングまで。<span class="nw">お客様一社一社の環境に合わせた清掃プランで、</span><span class="nw">働きやすい職場づくりをサポートします。</span></p>
+    </div>
+    <!-- 【確認事項】清掃記録カードは演出上の飾りです（実際の作業記録ではありません） -->
+    <div class="card" data-in="4" role="img" aria-label="清掃記録カード：日常清掃、定期清掃、特殊清掃、ハウスクリーニングにチェック">
+      <div class="card__top"><b>清掃記録</b><span id="cardDate">----.--.--</span></div>
+      <dl>
+        <div><dt>日常清掃</dt><dd><svg viewBox="0 0 20 20"><path pathLength="1" d="M4 10.5 L8.5 15 L16 5.5"/></svg></dd></div>
+        <div><dt>定期清掃</dt><dd><svg viewBox="0 0 20 20"><path pathLength="1" d="M4 10.5 L8.5 15 L16 5.5"/></svg></dd></div>
+        <div><dt>特殊清掃</dt><dd><svg viewBox="0 0 20 20"><path pathLength="1" d="M4 10.5 L8.5 15 L16 5.5"/></svg></dd></div>
+        <div><dt>ハウスクリーニング</dt><dd><svg viewBox="0 0 20 20"><path pathLength="1" d="M4 10.5 L8.5 15 L16 5.5"/></svg></dd></div>
+      </dl>
+      <p class="card__foot">ASSIST CHECK</p>
+    </div>
+    <!-- 【確認事項】キャッチコピーは仮案です -->
+    <h1 data-in="1"><span>職場に合わせて、</span><span>磨きあげる。</span></h1>
+  </div>
+  <span class="cue" aria-hidden="true"></span>
+</section>
+
+<section class="sec concept" id="concept" aria-labelledby="concept-h">
+  <div class="wrap concept__grid">
+    <div class="reveal">
+      <h2 class="h2" id="concept-h">主役は、<br>そこで働く人。<small>About us</small></h2>
+      <!-- 【確認事項】紹介文と社名の解釈はCSVの事業内容をもとにした仮案です -->
+      <p class="lead">職場がきれいに整っていると、働く人の気持ちも、来客の印象も変わります。</p>
+      <p style="margin-top:22px">私たちはオフィスを中心とした清掃サービスを行っています。日常清掃・定期清掃に加えて、特殊清掃やハウスクリーニングまで、幅広いメニューに対応しています。</p>
+      <p>「アシスト」は、そばで手を添えること。オフィスの広さも、使われ方も、会社によってさまざまです。「オフィスアシスト」の名の通り、お客様一社一社の環境に合わせた清掃プランをご提案し、その職場で働く人たちの毎日を、裏側から支えます。</p>
+    </div>
+    <div class="reveal"><svg class="plan draw" id="planFig" viewBox="0 0 560 380" role="img" aria-label="オフィスの平面図。エントランスから執務スペース、会議室、給湯室、化粧室をめぐる清掃の道すじ">
+  <path class="ln" pathLength="1" stroke="var(--text)" fill="none" d="M30 30 H530 V350 H30 Z"/>
+  <path class="ln d2" pathLength="1" stroke="var(--mute)" fill="none" d="M30 190 H220 M220 30 V140 M220 240 V350 M380 30 V350 M380 200 H530"/>
+  <g class="pop p2" fill="rgba(24,38,44,.12)"><rect x="250" y="60" width="40" height="22"/><rect x="300" y="60" width="40" height="22"/><rect x="250" y="110" width="40" height="22"/><rect x="300" y="110" width="40" height="22"/><rect x="250" y="160" width="40" height="22"/><rect x="300" y="160" width="40" height="22"/></g>
+  <path class="ln d3 route" pathLength="1" fill="none" stroke-dasharray="1" d="M120 340 V260 H300 V230 M300 230 C300 210 130 210 130 110 M130 110 H300 V95 M300 95 H450 V120 M450 120 V280"/>
+  <circle class="pop p3" cx="120" cy="340" r="6" fill="var(--accent)"/>
+  <circle class="pop p3" cx="130" cy="110" r="6" fill="var(--accent)"/>
+  <circle class="pop p4" cx="300" cy="230" r="6" fill="var(--accent)"/>
+  <circle class="pop p4" cx="450" cy="120" r="6" fill="var(--accent)"/>
+  <circle class="pop p5" cx="450" cy="280" r="6" fill="var(--accent)"/>
+  <text class="lbl" x="62" y="328">エントランス</text><text class="lbl" x="70" y="96">会議室</text><text class="lbl" x="250" y="210">執務スペース</text>
+  <text class="lbl" x="414" y="104">給湯室</text><text class="lbl" x="414" y="316">化粧室</text>
+</svg></div>
+  </div>
+</section>
+
+<figure class="band" aria-label="椅子とソファが並ぶ明るいオフィスのラウンジ">
+  <!-- 画像：Unsplash（仮）。差し替え推奨 -->
+  <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=2000&q=72" alt="" loading="lazy" aria-hidden="true" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+  <figcaption>朝いちばんの職場を、気持ちよく。</figcaption>
+</figure>
+
+<section class="sec" id="service" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="svc-h">清掃サービス<small>Service</small></h2>
+      <p class="lead">毎日のお手入れから、専門的な清掃まで。必要なメニューを組み合わせてご利用いただけます。</p>
+    </div>
+    <!-- 【確認事項】各メニューの作業例はCSVに無い補足です。実際の対応範囲に合わせて修正してください -->
+    <div class="svc">
+      <article class="reveal">
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=700&q=72" alt="掃除機でカーペットを清掃している様子" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></figure>
+        <div><p class="en">Daily</p><h3>日常清掃</h3><p>毎日の業務で生まれる汚れを、こまめに整えます。</p><ul><li>床・デスクまわり</li><li>ごみの回収</li><li>給湯室・トイレ</li></ul></div>
+      </article>
+      <article class="reveal">
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=72" alt="手袋とマスクを着けたスタッフが窓まわりを清掃している様子" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></figure>
+        <div><p class="en">Regular</p><h3>定期清掃</h3><p>日常清掃では手の届きにくい箇所を、計画的にしっかりと。</p><ul><li>床の洗浄</li><li>カーペットの清掃</li><li>窓・ガラス</li></ul></div>
+      </article>
+      <article class="reveal">
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=700&q=72" alt="手袋をした手でスプレーボトルを持つ様子" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></figure>
+        <!-- 【確認事項】特殊清掃の対象範囲をご確認ください -->
+        <div><p class="en">Special</p><h3>特殊清掃</h3><p>通常の清掃では対応が難しい現場にも対応します。</p><ul><li>内容に応じてご相談</li></ul></div>
+      </article>
+      <article class="reveal">
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=72" alt="清潔に整えられた浴室と洗面台" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></figure>
+        <div><p class="en">House</p><h3>ハウスクリーニング</h3><p>オフィスだけでなく、住まいの清掃も承ります。</p><ul><li>キッチン・浴室</li><li>洗面所・トイレ</li></ul></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec planning" id="plan" aria-labelledby="plan-h">
+  <div class="wrap planning__grid">
+    <figure class="ph reveal"><img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=72" alt="清掃用の青い手袋でハートの形をつくった手" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></figure>
+    <div>
+      <div class="reveal">
+        <h2 class="h2" id="plan-h">一社一社に合わせた、<br>清掃プラン。<small>Our plan</small></h2>
+        <p class="lead">決まったメニューを当てはめるのではなく、オフィスの環境や使われ方を見たうえで、必要な清掃を組み立てます。</p>
+      </div>
+      <!-- 【確認事項】プランづくりで大切にしていることの文章は仮案です -->
+      <ul class="values reveal"><li><h3>環境を知ることから</h3><p>広さ・人の出入り・汚れやすい場所など、オフィスごとの特徴を確かめます。</p></li><li><h3>必要なことを、必要なだけ</h3><p>日常清掃と定期清掃の組み合わせなど、無理のないプランをご提案します。</p></li><li><h3>働く人の邪魔をしない</h3><p>業務の妨げにならない時間や動き方を考えて清掃を進めます。</p></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="flow" aria-labelledby="flow-h">
+  <div class="wrap">
+    <div class="reveal"><h2 class="h2" id="flow-h">ご依頼の流れ<small>Flow</small></h2></div>
+    <!-- 【確認事項】流れは仮のものです（実際の手順なので番号を使用） -->
+    <ol class="steps" id="steps">
+<li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">01</span><h3>聴く</h3><small>ご相談</small><p>清掃したい場所やお困りごとをうかがいます。</p></li>
+<li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">02</span><h3>見る</h3><small>現地の確認</small><p>オフィスの環境を拝見します。</p></li>
+<li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">03</span><h3>組む</h3><small>プランのご提案</small><p>環境に合わせた清掃プランをご提案します。</p></li>
+<li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">04</span><h3>磨く</h3><small>清掃の開始</small><p>プランにそって清掃を行い、必要に応じて見直します。</p></li>
+</ol>
+  </div>
+</section>
+
+<section class="sec message" id="message" aria-labelledby="msg-h">
+  <!-- 【確認事項】代表メッセージは草案です。代表者ご本人の確認・修正を経て公開してください。署名欄の氏名は入れていません -->
+  <div class="wrap">
+    <div class="msg reveal"><h2 class="msg__title" id="msg-h">見えないところで、<br>毎日を支える。<small>代表メッセージ</small></h2><div class="msg__body"><p class="first">きれいな職場は、そこで働く人が気づかないうちに保たれています。</p><p>朝、デスクについたときに床が整っている。給湯室が気持ちよく使える。来客を迎える入口が明るい。そうした当たり前の心地よさは、誰かが手を添えることで続いていきます。</p><p>オフィスアシストは、その「手を添える」仕事を大切にしてきました。職場の広さも、人の動きも、会社ごとに違います。だからこそ、一社一社の環境をよく見て、ちょうどよい清掃のかたちを一緒に考えます。</p><p>働く人が、仕事に気持ちよく向き合えるように。これからも、見えないところから毎日を支えていきます。</p><p class="msg__sign">代表取締役　松下 明豊</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="company" aria-labelledby="company-h" style="background:var(--base-2)">
+  <div class="wrap profile-grid">
+    <div class="reveal"><h2 class="h2" id="company-h">会社概要<small>Company</small></h2></div>
+    <table class="profile reveal">
+<tr><th scope="row">商号</th><td>株式会社オフィスアシスト</td></tr>
+<!-- 【確認事項】代表者の役職名（「代表取締役」と仮置き） -->
+<tr><th scope="row">代表者</th><td>代表取締役　松下 明豊</td></tr>
+<tr><th scope="row">所在地</th><td>〒462-0032　名古屋市北区辻町一丁目38番地</td></tr>
+<tr><th scope="row">事業内容</th><td><ul><li>日常清掃</li><li>定期清掃</li><li>特殊清掃</li><li>ハウスクリーニング</li></ul></td></tr>
+<!-- 要確認：設立年月日・資本金・従業員数（未確認のため非表示）
+      <tr><th scope="row">設立</th><td></td></tr>
+      <tr><th scope="row">資本金</th><td></td></tr>
+      -->
+</table>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <div><a class="logo" href="#top" aria-label="株式会社オフィスアシスト トップへ"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 22 H25" stroke="#5FCFC0" stroke-width="2.6"/><path d="M16 22 V8" stroke="currentColor" stroke-width="1.6"/></svg><span class="logo__txt">オフィスアシスト<small>OFFICE ASSIST</small></span><!-- 【確認事項】英字表記「OFFICE ASSIST」とロゴマークは仮のものです --></a><p class="footer__tag">職場に合わせて、磨きあげる。</p></div>
+      <nav aria-label="フッターメニュー"><ul><li><a href="#concept">私たちについて</a></li><li><a href="#service">サービス</a></li><li><a href="#plan">清掃プラン</a></li><li><a href="#flow">ご依頼の流れ</a></li><li><a href="#message">代表メッセージ</a></li><li><a href="#company">会社概要</a></li></ul></nav>
+    </div>
+    <small class="footer__copy">&copy; <span id="year">2026</span> 株式会社オフィスアシスト</small>
+  </div>
+</footer>
+<script>
+
+(function(){
+'use strict';
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $ = function(s, r){ return (r || document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+var hooks = [];
+function addScroll(f){ hooks.push(f); }
+function progress(){ var max = document.documentElement.scrollHeight - innerHeight; return max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0; }
+var revealHooks = {};
+function onReveal(id, f){ revealHooks[id] = f; }
+/* canvas loop boilerplate: DPR<=2, debounced resize, pause offscreen/hidden, still frame on reduced motion */
+function canvasLoop(cv, o){
+  if (!cv || !cv.getContext) return null;
+  var ctx = cv.getContext('2d'), host = o.host || cv.parentElement;
+  var api = {ctx:ctx, W:0, H:0, cv:cv};
+  var dpr = 1, running = false, visible = true, raf = 0, t0 = performance.now(), lastW = -1;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = cv.clientWidth, H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    api.W = W; api.H = H;
+    if (W !== lastW || o.rebuildOnHeight){ lastW = W; if (o.build) o.build(api); }
+  }
+  function loop(now){ if (!running) return; o.draw(api, (now - t0) / 1000); raf = requestAnimationFrame(loop); }
+  function start(){ if (running || reduce || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+  function still(){ o.draw(api, o.stillT || 99); }
+  api.still = still;
+  resize();
+  if (reduce) still(); else start();
+  var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ resize(); if (!running) still(); }, 150); });
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ visible = en[0].isIntersecting; if (visible) start(); else stop(); }).observe(host);
+  }
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) stop(); else start(); });
+  return api;
+}
+function rgba(c, a){ return 'rgba(' + c + ',' + a + ')'; }
+function clamp01(x){ return x < 0 ? 0 : x > 1 ? 1 : x; }
+function ease(t){ t = clamp01(t); return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; }
+
+
+/* card date */
+(function(){ var d = new Date(), el = $('#cardDate'); el.textContent = d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0'); })();
+/* rail: the squeegee wipes the pane top-down */
+var rClear = $('#railClear'), rBlade = $('#railBlade'), rRead = $('#railRead');
+addScroll(function(p){
+  rClear.style.transform = 'scaleY(' + p.toFixed(4) + ')';
+  rBlade.style.top = (p * 100) + '%';
+  rRead.textContent = String(Math.round(p * 100)).padStart(3, '0') + '%';
+});
+/* hero: a fogged pane; each squeegee pass reveals the bright office behind */
+var photo = new Image(), ready = false, api = null;
+var bg = document.createElement('canvas'), bctx = bg.getContext('2d'), fogBase = document.createElement('canvas'), fbctx = fogBase.getContext('2d'), dims = {W:0, H:0, d:1};
+function bake(){
+  var W = dims.W, H = dims.H, d = dims.d; bg.width = Math.round(W * d); bg.height = Math.round(H * d); bctx.setTransform(d, 0, 0, d, 0, 0);
+  if (ready){ var s = Math.max(W / photo.width, H / photo.height); bctx.drawImage(photo, (W - photo.width * s) / 2, (H - photo.height * s) / 2, photo.width * s, photo.height * s); }
+  else { var g0 = bctx.createLinearGradient(0, 0, W, H); g0.addColorStop(0, '#d8e6e3'); g0.addColorStop(1, '#7fa3a6'); bctx.fillStyle = g0; bctx.fillRect(0, 0, W, H); }
+  bctx.fillStyle = 'rgba(19,37,43,.35)'; bctx.fillRect(0, 0, W, H);
+  fogBase.width = bg.width; fogBase.height = bg.height; fbctx.setTransform(d, 0, 0, d, 0, 0);
+  fbctx.fillStyle = 'rgba(19,37,43,.82)'; fbctx.fillRect(0, 0, W, H);
+  specks.forEach(function(p){ fbctx.fillStyle = 'rgba(200,220,222,' + p.a * .45 + ')'; fbctx.beginPath(); fbctx.arc(p.x, p.y, p.r, 0, 6.283); fbctx.fill(); });
+}
+photo.onload = function(){ ready = true; bake(); if (api && reduce) api.still(); };
+photo.src = 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=70';
+var fog = document.createElement('canvas'), fctx = fog.getContext('2d'), specks = [];
+var CYCLE = 7.5;
+api = canvasLoop($('#heroCanvas'), {
+  stillT: 4.6,
+  build: function(a){
+    fog.width = a.cv.width; fog.height = a.cv.height;
+    specks = []; var n = a.W < 760 ? 260 : 620;
+    for (var i = 0; i < n; i++) specks.push({x:Math.random() * a.W, y:Math.random() * a.H, r:.4 + Math.random() * 1.8, a:.15 + Math.random() * .35});
+    dims = {W:a.W, H:a.H, d:a.cv.width / Math.max(1, a.W)}; bake();
+  },
+  draw: function(a, t){
+    var c = a.ctx, W = a.W, H = a.H, dpr = a.cv.width / Math.max(1, W);
+    c.clearRect(0, 0, W, H);
+    c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(bg, 0, 0); c.restore();
+    var ct = t % CYCLE, k = ease((ct - .8) / 3.2), back = clamp01((ct - 6.2) / 1.1);
+    var tilt = H * .18, bx = -tilt + (W + tilt * 2) * k;
+    /* fog layer */
+    fctx.setTransform(1, 0, 0, 1, 0, 0);
+    fctx.globalCompositeOperation = 'source-over'; fctx.clearRect(0, 0, fog.width, fog.height);
+    fctx.drawImage(fogBase, 0, 0);
+    fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (k > 0){
+      fctx.globalCompositeOperation = 'destination-out';
+      fctx.fillStyle = 'rgba(0,0,0,' + (1 - back) + ')';
+      fctx.beginPath(); fctx.moveTo(-tilt * 2, 0); fctx.lineTo(bx + tilt, 0); fctx.lineTo(bx - tilt, H); fctx.lineTo(-tilt * 2, H); fctx.closePath(); fctx.fill();
+    }
+    c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(fog, 0, 0); c.restore();
+    /* blade + wet sheen while moving */
+    if (k > 0 && k < 1){
+      var gl = c.createLinearGradient(bx - 40, 0, bx + 10, 0);
+      gl.addColorStop(0, 'rgba(255,255,255,0)'); gl.addColorStop(1, 'rgba(255,255,255,.18)');
+      c.fillStyle = gl; c.beginPath(); c.moveTo(bx + tilt - 40, 0); c.lineTo(bx + tilt + 2, 0); c.lineTo(bx - tilt + 2, H); c.lineTo(bx - tilt - 40, H); c.closePath(); c.fill();
+      c.strokeStyle = 'rgba(95,207,192,.95)'; c.lineWidth = 3; c.lineCap = 'round';
+      c.beginPath(); c.moveTo(bx + tilt * .62, H * .19); c.lineTo(bx - tilt * .62, H * .81); c.stroke();
+      c.strokeStyle = 'rgba(241,243,240,.8)'; c.lineWidth = 1.4;
+      var mxp = bx, myp = H * .5; c.beginPath(); c.moveTo(mxp, myp); c.lineTo(mxp + 46, myp - 10); c.stroke();
+    }
+    /* small sparkles on the clean side */
+    if (k >= 1 && back < 1){
+      for (var i = 0; i < 5; i++){
+        var sx = W * (.2 + i * .15), sy = H * (.3 + (i % 2) * .25), tw = .5 + .5 * Math.sin(t * 3 + i * 1.7);
+        c.strokeStyle = 'rgba(255,255,255,' + (.6 * tw * (1 - back)) + ')'; c.lineWidth = 1;
+        c.beginPath(); c.moveTo(sx - 6, sy); c.lineTo(sx + 6, sy); c.moveTo(sx, sy - 6); c.lineTo(sx, sy + 6); c.stroke();
+      }
+    }
+  }
+});
+
+
+/* header + rail (rAF-throttled) */
+var header = $('#header'), ticking = false;
+function onScroll(){ header.classList.toggle('is-scrolled', scrollY > 40); var p = progress(); hooks.forEach(function(f){ f(p); }); ticking = false; }
+addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+addEventListener('resize', onScroll);
+addEventListener('load', onScroll);
+onScroll();
+/* band parallax */
+var bandImg = $('.band img');
+if (bandImg && !reduce){ addScroll(function(){
+  var r = bandImg.parentElement.getBoundingClientRect();
+  if (r.bottom < 0 || r.top > innerHeight) return;
+  var k = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+  bandImg.style.transform = 'translateY(' + (k * -40).toFixed(1) + 'px)';
+}); }
+/* menu */
+var btn = $('#menuBtn'), nav = $('#gnav');
+function setMenu(open){
+  btn.setAttribute('aria-expanded', String(open));
+  btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  nav.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+  if (open){ var f = nav.querySelector('a'); if (f) f.focus(); }
+}
+btn.addEventListener('click', function(){ setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+nav.addEventListener('click', function(e){ if (e.target.closest('a') && nav.classList.contains('is-open')) setMenu(false); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')){ setMenu(false); btn.focus(); } });
+matchMedia('(min-width:901px)').addEventListener('change', function(m){ if (m.matches) setMenu(false); });
+/* reveal: one-shot */
+var targets = $$('.reveal, .draw, .steps, .biz');
+function hit(el){ el.classList.add('is-in'); if (el.id && revealHooks[el.id]) revealHooks[el.id](el); }
+if ('IntersectionObserver' in window && !reduce){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (!en.isIntersecting) return; hit(en.target); io.unobserve(en.target); });
+  }, {threshold:.18, rootMargin:'0px 0px -6% 0px'});
+  targets.forEach(function(t){ io.observe(t); });
+} else { targets.forEach(hit); }
+/* entrance + year */
+requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('is-loaded'); }); });
+var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+})();
+
+</script>
+</body>
+</html>
